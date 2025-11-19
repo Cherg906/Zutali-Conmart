@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clear Admin Cache</title>
+</head>
+<body>
+    <h1>Clearing Admin Cache...</h1>
+    <p id="status">Processing...</p>
+    
+    <script>
+        // Clear old tokens
+        localStorage.removeItem('admin_token');
+        localStorage.removeItem('authToken');
+        localStorage.removeItem('admin_authenticated');
+        localStorage.removeItem('admin_user');
+        localStorage.removeItem('userData');
+        
+        // Set new admin token
+        const newToken = '7fa84ecb9402f33e8d2bebcd4fe40d2bed1757a3';
+        localStorage.setItem('admin_token', newToken);
+        localStorage.setItem('authToken', newToken);
+        localStorage.setItem('admin_authenticated', 'true');
+        localStorage.setItem('admin_user', JSON.stringify({
+            username: 'admin',
+            email: 'admin@zutali.com',
+            role: 'admin',
+            first_name: 'Admin',
+            last_name: 'User'
+        }));
+        localStorage.setItem('userData', JSON.stringify({
+            username: 'admin',
+            email: 'admin@zutali.com',
+            role: 'admin',
+            first_name: 'Admin',
+            last_name: 'User'
+        }));
+        
+        document.getElementById('status').innerHTML = 
+            '✓ Cache cleared and new admin token set!<br><br>' +
+            '<a href="/dashboard/admin">Go to Admin Dashboard</a>';
+    </script>
+</body>
+</html>

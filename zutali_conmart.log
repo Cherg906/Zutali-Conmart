@@ -1,0 +1,28 @@
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 302 0
+"GET /api/ HTTP/1.1" 200 8744
+"GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 200 3385
+"GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 200 121457
+"GET /static/rest_framework/css/default.css HTTP/1.1" 200 1152
+"GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 200 3597
+"GET /static/rest_framework/js/jquery-3.5.1.min.js HTTP/1.1" 200 89476
+"GET /static/rest_framework/js/csrf.js HTTP/1.1" 200 1719
+"GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 200 39680
+"GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 200 13632
+"GET /static/rest_framework/js/default.js HTTP/1.1" 200 1268
+"GET /static/rest_framework/css/prettify.css HTTP/1.1" 200 817
+"GET /static/rest_framework/img/grid.png HTTP/1.1" 200 1458
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2322
+"GET /api/?format=api HTTP/1.1" 200 9096
+"OPTIONS /api/?format=api HTTP/1.1" 200 5594
+"GET /api/?format=api HTTP/1.1" 200 9096
+"OPTIONS /api/categories/?page_size=100 HTTP/1.1" 200 0
+"OPTIONS /api/categories/?page_size=100 HTTP/1.1" 200 0
+"GET /api/categories/?page_size=100 HTTP/1.1" 200 26712
+"GET /api/categories/?page_size=100 HTTP/1.1" 200 26712
+"GET /api/categories/?page_size=100 HTTP/1.1" 200 26712
+"GET /api/categories/?page_size=100 HTTP/1.1" 200 26712
+"GET /api/categories/ HTTP/1.1" 200 26712
+"GET /api/categories/?page_size=100 HTTP/1.1" 200 26712
+"GET /api/categories/?page_size=100 HTTP/1.1" 200 26712
