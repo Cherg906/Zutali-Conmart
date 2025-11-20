@@ -21,7 +21,12 @@ import {
   Plus,
   Edit,
   Trash2,
-  Save
+  Save,
+  Filter,
+  Loader2,
+  Search,
+  ShieldAlert,
+  X
 } from "lucide-react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -1172,6 +1177,90 @@ export function AdminDashboard() {
       </Tabs>
     </TabsContent>
 
+    <TabsContent value="users" className="space-y-4">
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <CheckCircle2 className="h-5 w-5 text-green-500" />
+                Verified Product Owners
+              </CardTitle>
+              <CardDescription>
+                View and manage verified product owners
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              {approvedVerifications.length === 0 ? (
+                <p className="text-center text-muted-foreground py-8">
+                  No verified product owners
+                </p>
+              ) : (
+                <div className="space-y-4">
+                  {approvedVerifications.map((owner) => (
+                    <div key={owner.id} className="border rounded-lg p-4 space-y-3">
+                      <div className="flex items-start justify-between">
+                        <div>
+                          <h3 className="font-semibold">{owner.businessName}</h3>
+                          <p className="text-sm text-muted-foreground">{owner.userEmail}</p>
+                        </div>
+                        <Badge variant="outline" className="bg-green-50 text-green-700">
+                          <CheckCircle2 className="h-3 w-3 mr-1" />
+                          Verified
+                        </Badge>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        <TabsContent value="rejected-verifications" className="space-y-4">
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <XCircle className="h-5 w-5 text-red-500" />
+                Rejected Verifications
+              </CardTitle>
+              <CardDescription>
+                View and manage rejected verification requests
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              {rejectedVerifications.length === 0 ? (
+                <p className="text-center text-muted-foreground py-8">
+                  No rejected verification requests
+                </p>
+              ) : (
+                <div className="space-y-4">
+                  {rejectedVerifications.map((request) => (
+                    <div key={request.id} className="border rounded-lg p-4 space-y-3">
+                      <div className="flex items-start justify-between">
+                        <div>
+                          <h3 className="font-semibold">{request.businessName}</h3>
+                          <p className="text-sm text-muted-foreground">{request.userEmail}</p>
+                          {request.rejectionReason && (
+                            <p className="text-sm text-red-500 mt-1">
+                              <span className="font-medium">Reason: </span>
+                              {request.rejectionReason}
+                            </p>
+                          )}
+                        </div>
+                        <Badge variant="outline" className="bg-red-50 text-red-700">
+                          <XCircle className="h-3 w-3 mr-1" />
+                          Rejected
+                        </Badge>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </CardContent>
+          </Card>
+        </TabsContent>
+      </Tabs>
+    </TabsContent>
+
     <TabsContent value="moderation" className="space-y-4">
           <Card>
             <CardHeader>
@@ -1277,11 +1366,24 @@ export function AdminDashboard() {
             </CardContent>
           </Card>
         </TabsContent>
+      </Tabs>
+    </TabsContent>
 
-            </TabsContent>
+    {/* Main Users Tab */}
+    <TabsContent value="users" className="space-y-4">
+      <Tabs defaultValue="verified-owners" className="space-y-4">
+        <TabsList className="grid grid-cols-2 w-full">
+          <TabsTrigger value="verified-owners">
+            <BadgeCheck className="h-4 w-4 mr-2" />
+            Verified Owners
+          </TabsTrigger>
+          <TabsTrigger value="pending-verification">
+            <ShieldAlert className="h-4 w-4 mr-2" />
+            Pending Verification
+          </TabsTrigger>
+        </TabsList>
 
-            {/* Verified Owners Tab */}
-            <TabsContent value="verified-owners" className="space-y-4">
+        <TabsContent value="verified-owners" className="space-y-4">
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
