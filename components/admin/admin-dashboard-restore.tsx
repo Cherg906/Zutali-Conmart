@@ -1087,6 +1087,7 @@ export function AdminDashboard() {
             </CardContent>
           </Card>
         </TabsContent>
+      </Tabs>
 
         <TabsContent value="moderation" className="space-y-4">
           <Card>
