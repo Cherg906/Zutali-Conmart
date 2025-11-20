@@ -953,7 +953,7 @@ export function AdminDashboard() {
             </TabsList>
 
             <TabsContent value="pending-verifications" className="space-y-4">
-          <Card>
+              <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <ShieldCheck className="h-5 w-5" />
@@ -1081,25 +1081,39 @@ export function AdminDashboard() {
                             }
                           }}
                         >
-                          <Download className="h-4 w-4 mr-2" />
-                          Download All
-                        </Button>
-                      </div>
                     </div>
-                  ))}
-                </div>
-              )}
-            </CardContent>
-          </Card>
-        </TabsContent>
+                  </div>
+                ))}
+              </div>
+            )}
+          </CardContent>
+        </Card>
+      </TabsContent>
 
-        <TabsContent value="verified-owners" className="space-y-4">
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <CheckCircle2 className="h-5 w-5 text-green-500" />
-                Verified Product Owners
-              </CardTitle>
+      <TabsContent value="verified-owners" className="space-y-4">
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <CheckCircle2 className="h-5 w-5 text-green-500" />
+              Verified Product Owners
+            </CardTitle>
+            <CardDescription>
+              View and manage verified product owners
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            {approvedVerifications.length === 0 ? (
+              <p className="text-center text-muted-foreground py-8">
+                No verified product owners
+              </p>
+            ) : (
+              <div className="space-y-4">
+                {approvedVerifications.map((owner) => (
+                  <div key={owner.id} className="border rounded-lg p-4 space-y-3">
+                    <div className="flex items-start justify-between">
+                      <div>
+                        <h3 className="font-semibold">{owner.businessName}</h3>
+                        <p className="text-sm text-muted-foreground">{owner.userEmail}</p>
               <CardDescription>
                 View and manage verified product owners
               </CardDescription>
