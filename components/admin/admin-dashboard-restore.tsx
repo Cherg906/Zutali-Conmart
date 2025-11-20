@@ -1081,7 +1081,10 @@ export function AdminDashboard() {
                             }
                           }}
                         >
-                    </div>
+                          <Download className="h-4 w-4 mr-2" />
+                          Download All
+                        </Button>
+                      </div>
                   </div>
                 ))}
               </div>
@@ -1089,12 +1092,13 @@ export function AdminDashboard() {
           </CardContent>
         </Card>
       </TabsContent>
+      </Tabs>
 
       <TabsContent value="verified-owners" className="space-y-4">
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <CheckCircle2 className="h-5 w-5 text-green-500" />
+              <CheckCircle className="h-5 w-5 text-green-500" />
               Verified Product Owners
             </CardTitle>
             <CardDescription>
@@ -1195,7 +1199,7 @@ export function AdminDashboard() {
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <CheckCircle2 className="h-5 w-5 text-green-500" />
+                <CheckCircle className="h-5 w-5 text-green-500" />
                 Verified Product Owners
               </CardTitle>
               <CardDescription>
