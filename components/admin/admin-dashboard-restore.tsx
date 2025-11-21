@@ -12,6 +12,7 @@ import {
   XCircle,
   Clock,
   Eye,
+  Image as ImageIcon,
   Settings,
   RefreshCw,
   Download,
@@ -96,6 +97,8 @@ interface ProductModerationItem {
   status: 'active' | 'pending' | 'approved' | 'rejected'
   rejectionReason?: string
   reviewedAt?: string
+  thumbnail?: string
+  image?: string
 }
 
 interface AdminUser {
@@ -939,7 +942,7 @@ export function AdminDashboard() {
         </TabsList>
 
         {/* Product Owners Section */}
-<TabsContent value="product-owners" className="space-y-4">
+        <TabsContent value="product-owners" className="space-y-4">
           <Tabs defaultValue="pending-verifications" className="space-y-4">
             <TabsList className="grid grid-cols-3 w-full">
               <TabsTrigger value="pending-verifications">
@@ -1087,15 +1090,44 @@ export function AdminDashboard() {
                         </Button>
                       </div>
                     </div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </CardContent>
-        </Card>
+                  ))}
+                </div>
+              )}
+            </CardContent>
+          </Card>
+        </TabsContent>
+          
+          {/* Add the missing TabsContent for verified-owners */}
+          <TabsContent value="verified-owners" className="space-y-4">
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <CheckCircle className="h-5 w-5 text-green-500" />
+                  Verified Owners
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                {/* Add verified owners content here */}
+              </CardContent>
+            </Card>
+          </TabsContent>
+          
+          {/* Add the missing TabsContent for rejected-verifications */}
+          <TabsContent value="rejected-verifications" className="space-y-4">
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <XCircle className="h-5 w-5 text-red-500" />
+                  Rejected Verifications
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                {/* Add rejected verifications content here */}
+              </CardContent>
+            </Card>
+          </TabsContent>
+        </Tabs>
       </TabsContent>
-    </Tabs>
-    </TabsContent>
 
       <TabsContent value="verified-owners" className="space-y-4">
         <Card>
@@ -1197,10 +1229,10 @@ export function AdminDashboard() {
         </TabsContent>
       </Tabs>
     <TabsContent value="users" className="space-y-4">
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <CheckCircle className="h-5 w-5 text-green-500" />
+      <Card>
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2">
+            <CheckCircle className="h-5 w-5 text-green-500" />
                 Verified Product Owners
               </CardTitle>
               <CardDescription>
@@ -1281,10 +1313,10 @@ export function AdminDashboard() {
     </TabsContent>
 
     <TabsContent value="moderation" className="space-y-4">
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <AlertTriangle className="h-5 w-5" />
+      <Card>
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2">
+            <AlertTriangle className="h-5 w-5" />
                 Product Moderation
               </CardTitle>
               <CardDescription>
@@ -1487,10 +1519,10 @@ export function AdminDashboard() {
 
         {/* Users Section */}
         <TabsContent value="users" className="space-y-4">
-          <Tabs defaultValue="pending-users" className="space-y-4">
-            <TabsList className="grid grid-cols-3 w-full">
-              <TabsTrigger value="pending-users">
-                Pending ({pendingUsers.length})
+      <Tabs defaultValue="pending-users" className="space-y-4">
+        <TabsList className="grid grid-cols-3 w-full">
+          <TabsTrigger value="pending-users">
+            Pending ({pendingUsers.length})
               </TabsTrigger>
               <TabsTrigger value="approved-users">
                 Approved ({approvedUsers.length})
