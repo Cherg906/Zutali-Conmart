@@ -943,6 +943,7 @@ export function AdminDashboard() {
             </div>
           </TabsContent>
         </Tabs>
+        </Tabs>
 
         <Dialog open={detailsOpen} onOpenChange={setDetailsOpen}>
           <DialogContent className="sm:max-w-3xl">
