@@ -749,7 +749,8 @@ export function AdminDashboard() {
   }
 
   return (
-    <div className="container mx-auto p-6 space-y-6">
+    <div className="space-y-6">
+      <div className="container mx-auto p-6">
       {/* Header */}
       <div className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container mx-auto flex h-14 items-center justify-between px-4">
@@ -938,7 +939,7 @@ export function AdminDashboard() {
         </TabsList>
 
         {/* Product Owners Section */}
-        <TabsContent value="product-owners" className="space-y-4">
+<TabsContent value="product-owners" className="space-y-4">
           <Tabs defaultValue="pending-verifications" className="space-y-4">
             <TabsList className="grid grid-cols-3 w-full">
               <TabsTrigger value="pending-verifications">
@@ -1085,6 +1086,7 @@ export function AdminDashboard() {
                           Download All
                         </Button>
                       </div>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -1092,7 +1094,8 @@ export function AdminDashboard() {
           </CardContent>
         </Card>
       </TabsContent>
-      </Tabs>
+    </Tabs>
+    </TabsContent>
 
       <TabsContent value="verified-owners" className="space-y-4">
         <Card>
@@ -1193,8 +1196,6 @@ export function AdminDashboard() {
           </Card>
         </TabsContent>
       </Tabs>
-    </TabsContent>
-
     <TabsContent value="users" className="space-y-4">
           <Card>
             <CardHeader>
@@ -1385,8 +1386,6 @@ export function AdminDashboard() {
           </Card>
         </TabsContent>
       </Tabs>
-    </TabsContent>
-
     {/* Main Users Tab */}
     <TabsContent value="users" className="space-y-4">
       <Tabs defaultValue="verified-owners" className="space-y-4">
@@ -1855,6 +1854,7 @@ export function AdminDashboard() {
           </DialogFooter>
         </DialogContent>
       </Dialog>
+      </div>
     </div>
   )
 }
