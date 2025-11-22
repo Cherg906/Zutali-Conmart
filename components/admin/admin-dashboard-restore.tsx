@@ -1,6 +1,7 @@
 // ...existing code...
 "use client"
 
+import * as React from "react"
 import { useState, useEffect, useCallback } from "react"
 import {
   Users,
@@ -396,9 +397,17 @@ export function AdminDashboard() {
 
   const warmCache = async () => {
     setRefreshing(true)
-    await new Promise(r => setTimeout(r, 1000))
-    setRefreshing(false)
-    alert('Cache warmed (simulated)')
+    try {
+      await new Promise(r => setTimeout(r, 1000))
+      // Simulate cache warming
+      await fetch('/api/cache/warm', { method: 'POST' })
+      alert('Cache warmed successfully')
+    } catch (error) {
+      console.error('Error warming cache:', error)
+      alert('Failed to warm cache')
+    } finally {
+      setRefreshing(false)
+    }
   }
 
   if (!mounted) return null
@@ -942,7 +951,6 @@ export function AdminDashboard() {
               </Card>
             </div>
           </TabsContent>
-        </Tabs>
         </Tabs>
 
         <Dialog open={detailsOpen} onOpenChange={setDetailsOpen}>
