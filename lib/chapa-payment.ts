@@ -3,6 +3,8 @@
  * Ethiopian payment gateway integration
  */
 
+import crypto from 'crypto'
+
 export interface ChapaPaymentData {
   amount: number
   currency: string
